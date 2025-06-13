@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t; -*-
-;; Insert verses from texts
+;; Easily Insert Verses from Sacred Texts
 ;; Author: Raoul Comninos
 ;; Created: 1 October 2023
 ;; Version: 1.0
@@ -7,7 +7,7 @@
 
 (defun insert-random-verses (n)
   (interactive "nEnter the number of verses: ")
-  (let ((text-file "/home/tan/kjv.txt")
+  (let ((text-file "~/easy-insert-verses/kjv.txt")
   (verses '())
   (lines nil))
     (with-temp-buffer
@@ -26,7 +26,7 @@
 (defun insert-chapters (text-file pattern)
   (interactive
    (let* ((version (completing-read "Choose the text file (kjv/niv) [kjv]: " '("kjv" "niv") nil t nil nil "kjv"))
-	  (file (format "/home/tan/%s.txt" version))
+	  (file (format "~/easy-insert-verses/%s.txt" version))
 	  (pat (read-string "Enter the pattern: " last-pattern)))
      (setq last-pattern pat)
      (list file pat)))
@@ -52,7 +52,7 @@
 
 (defun search-kjv (regex)
   (interactive "sEnter the regex pattern to search KJV: ")
-  (let ((text-file "/home/tan/kjv.txt")
+  (let ((text-file "~/easy-insert-verses/kjv.txt")
   (lines nil))
     (with-temp-buffer
       (insert-file-contents text-file)
@@ -69,7 +69,7 @@
 
 (defun search-niv (regex)
   (interactive "sEnter the regex pattern to search NIV: ")
-  (let ((text-file "/home/tan/niv.txt")
+  (let ((text-file "~/easy-insert-verses/niv.txt")
   (lines nil))
     (with-temp-buffer
       (insert-file-contents text-file)
@@ -89,7 +89,7 @@
 (defun insert-verses ()
   (interactive)
   (let* ((version (completing-read "Choose the text file (kjv/niv) [kjv]: " '("kjv" "niv") nil t nil nil "kjv"))
-	 (text-file (format "/home/tan/%s.txt" version))
+	 (text-file (format "~/easy-insert-verses/%s.txt" version))
 	 (start-pattern (read-string "Enter the start pattern: " last-start-pattern))
 	 (book-chap (when (string-match "\\(.*\\)|\\([0-9]+\\)|\\([0-9]+\\)|" start-pattern)
 		      (format "%s|%s|" (match-string 1 start-pattern) (match-string 2 start-pattern))))
@@ -130,3 +130,5 @@
 (global-set-key (kbd "C-c v") 'insert-verses)
 (global-set-key (kbd "C-c s") 'search-kjv)
 (global-set-key (kbd "C-c S") 'search-niv)
+
+(provide 'easy-insert-verses)
