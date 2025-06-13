@@ -57,6 +57,10 @@ Search for all verses containing "faith":
 - You can edit the path to `kjv.txt` in the source if your file is elsewhere.
 - The code can be easily adapted for other verse files or translations with a similar format.
 
+## Watch a Video on It
+
+[https://youtu.be/oZhjm-KSuLE](https://youtu.be/oZhjm-KSuLE)
+
 ## License
 
 MIT License
