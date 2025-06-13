@@ -1,5 +1,50 @@
 ;; -*- lexical-binding: t; -*-
-;; Easily Insert Verses from Sacred Texts
+;;; easy-insert-verses.el --- Insert verses from the Bible into the buffer
+;; Author: Raoul Comninos
+;; Version: 1.0
+;; Created: 2025-06-13
+;; URL: https://github.com/gnarledgrip/easy-insert-verses
+;; Package-Requires: ((emacs "24.1"))
+
+;; This file is part of GNU Emacs.
+;;
+;; This program is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+;; easy-insert-verses is an Emacs package that allows users to quickly insert verses from the King James Version (KJV) of the Bible into any Emacs buffer.
+;; It provides convenient interactive commands to insert random verses, matched chapters, custom verse ranges, or all verses matching a regular expression.
+;; This is especially useful for writers, researchers, and anyone who frequently references scripture or wishes to add random or specific Bible verses to their notes or documents.
+;;
+;; The package expects a plain text file (by default named 'kjv.txt') in which each line contains a verse, typically formatted as 'Book|Chapter|Verse|Text'.
+;; Users can configure the path to this file if needed.
+;;
+;; Interactive commands include:
+;; - `insert-random-verses`: Insert N random verses.
+;; - `insert-chapters`: Insert all verses matching a regex pattern (such as a chapter).
+;; - `insert-verses`: Insert a range of verses by specifying start and end patterns.
+;; - `search-kjv`: Insert all verses matching a given regex pattern.
+;;
+;; Keybindings are provided for fast access:
+;; - C-c i : insert-random-verses
+;; - C-c c : insert-chapters
+;; - C-c v : insert-verses
+;; - C-c s : search-kjv
+;;
+;; See the README for more information and usage examples.
+
+;;; Code:
 
 (defun insert-random-verses (n)
   (interactive "nEnter the number of verses: ")
