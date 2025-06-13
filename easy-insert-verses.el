@@ -1,9 +1,8 @@
 ;; -*- lexical-binding: t; -*-
-
 ;; Insert verses from texts
 ;; Author: Raoul Comninos
 ;; Created: 1 October 2023
-;; Version: 0
+;; Version: 1.0
 ;; Copyright (C) 2023, Raoul Comninos, all rights reserved.
 
 (defun insert-random-verses (n)
